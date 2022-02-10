@@ -18,4 +18,4 @@ Route::get('/', function () {
 });
 
 require_once('backend.php');
-//require_once('frontend.php');
+require_once('frontend.php');
