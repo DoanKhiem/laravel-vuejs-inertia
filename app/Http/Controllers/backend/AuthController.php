@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\backend\ChangePasswordRequest;
 use App\Http\Requests\backend\LoginRequest;
 use App\Http\Requests\backend\RegisterRequest;
 use App\Models\User;
@@ -75,6 +76,25 @@ class AuthController extends Controller
 
         if ($user->update($request->all())) {
             return redirect()->route('admin.myProfile')->with('success', "Sửa thông tin cá nhân thành công");
+        } else {
+            return 'lỗi';
+        }
+    }
+
+    public function changePassword(){
+//        dd('a');
+        return view('backend.auth.change-password');
+    }
+
+    public function updatePassword(ChangePasswordRequest $request, $id){
+
+        $user = User::find($id);
+
+        $password = bcrypt($request->password_new);
+        $request->merge(['password' => $password]);
+//        dd($request->all());
+        if ($user->update($request->all())) {
+            return redirect()->route('admin.dashboard')->with('success', "Đổi mật khẩu cá nhân thành công");
         } else {
             return 'lỗi';
         }

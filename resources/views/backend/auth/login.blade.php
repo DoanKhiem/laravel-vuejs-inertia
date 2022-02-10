@@ -53,18 +53,18 @@
                                 @endif
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Mật khẩu</label>
-                                    <a href="#" class="float-right text-dark">Quên mật khẩu?</a>
+{{--                                    <a href="#" class="float-right text-dark">Quên mật khẩu?</a>--}}
                                     <input type="password" name="password" class="form-control mb-0" id="exampleInputPassword1" placeholder="Nhập mật khẩu">
                                 </div>
                                 @if ($errors->has('password'))
                                     <label class="iq-bg-danger pl-2 pr-2 rounded d-inline-block">{{ $errors->first('password') }}</label>
                                 @endif
-                                <div class="d-inline-block w-100">
-                                    <div class="custom-control custom-checkbox d-inline-block mt-2 pt-1">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                        <label class="custom-control-label" for="customCheck1">Thích thì bấm không thích thì bấm</label>
-                                    </div>
-                                </div>
+{{--                                <div class="d-inline-block w-100">--}}
+{{--                                    <div class="custom-control custom-checkbox d-inline-block mt-2 pt-1">--}}
+{{--                                        <input type="checkbox" class="custom-control-input" id="customCheck1">--}}
+{{--                                        <label class="custom-control-label" for="customCheck1">Thích thì bấm không thích thì bấm</label>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
                                 <div class="sign-info text-center">
                                     <button type="submit" class="btn btn-white d-block w-100 mb-2">Đăng Nhập</button>
                                     <span class="text-dark dark-color d-inline-block line-height-2">Chưa Có Tài Khoản? <a href="{{ route('admin.register') }}" class="text-white">Đăng Ký</a></span>

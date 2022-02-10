@@ -38,6 +38,12 @@
     <!-- Page Content  -->
     <div id="content-page" class="content-page">
         <div class="container-fluid">
+            @if(Session::has('error'))
+                <div class="mb-2 mr-2 badge badge-danger">{{Session::get('error')}}</div>
+            @endif
+            @if(Session::has('success'))
+                <div class="mb-2 mr-2 badge badge-success">{{Session::get('success')}}</div>
+            @endif
             <div class="row">
                 @yield('content')
             </div>

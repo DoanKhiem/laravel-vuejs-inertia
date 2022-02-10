@@ -1,5 +1,5 @@
 @extends('backend.master')
-@section('title', 'Thông tin cá nhân')
+@section('title', 'Sửa thông tin cá nhân')
 @section('content')
 
     <div class="col-lg-12">

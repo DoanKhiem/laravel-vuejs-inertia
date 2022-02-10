@@ -30,7 +30,8 @@ Route::prefix('admin')->group(function(){
         Route::get('profile', [AuthController::class, 'myProfile'])->name('admin.myProfile');
         Route::get('edit-profile', [AuthController::class, 'editProfile'])->name('admin.editProfile');
         Route::post('edit-profile/{id}', [AuthController::class, 'updateProfile'])->name('admin.updateProfile');
-
+        Route::get('edit-password', [AuthController::class, 'changePassword'])->name('admin.changePassword');
+        Route::post('edit-password/{id}', [AuthController::class, 'updatePassword'])->name('admin.updatePassword');
 
 
         Route::get('/book', [BookController::class, 'index'])->name('admin.book.index');
