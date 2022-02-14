@@ -1,28 +1,7 @@
 @extends('backend.master')
 @section('title', 'Danh sách sách')
 @section('content')
-    @if(Session::has('errors'))
-        <div class="ml-3 alert text-white bg-warning" role="alert" style="font-size: 15px; padding: 5px">
-            <div class="iq-alert-icon">
-                <i class="ri-alert-line"></i>
-            </div>
-            <div class="iq-alert-text">{{Session::get('errors')}}!</div>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <i class="ri-close-line"></i>
-            </button>
-        </div>
-    @endif
-    @if(Session::has('success'))
-        <div class="ml-3 alert text-white bg-success" role="alert" style="font-size: 15px; padding: 5px">
-            <div class="iq-alert-icon">
-                <i class="ri-alert-line"></i>
-            </div>
-            <div class="iq-alert-text">{{Session::get('success')}}!</div>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <i class="ri-close-line"></i>
-            </button>
-        </div>
-    @endif
+
     <div class="col-sm-12">
         <div class="iq-card">
             <div class="iq-card-header d-flex justify-content-between">
@@ -46,6 +25,7 @@
                             <th scope="col">Tác giả</th>
                             <th scope="col">Kệ sách</th>
                             <th scope="col">Ban đầu/Hiện tại</th>
+                            <th scope="col">Giá tiền</th>
                             <th scope="col">Ảnh</th>
                             <th scope="col">Chức năng</th>
                         </tr>
@@ -60,6 +40,7 @@
                                 <td>{{$item->author}}</td>
                                 <td>{{$item->bookToShelf->name}}</td>
                                 <td>{{$item->original_number}}/{{$item->current_quantity}}</td>
+                                <td>{{$item->price}} vnd</td>
                                 <td>
                                     @if($item->image)
                                         <img style="width: 110px;" src="{{ url('uploads') }}/books/{{ $item->image }}"

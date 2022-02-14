@@ -17,6 +17,7 @@ class Books extends Model
         'category_id',
         'original_number',
         'current_quantity',
+        'price',
         'author',
         'image',
         'note'
@@ -27,6 +28,25 @@ class Books extends Model
         }
         return $query;
     }
+
+    public function scopeCategory($query, $request)
+    {
+        if ($request->has('category') != null) {
+            $query->where('category_id', '=',  $request->category);
+        }
+
+        return $query;
+    }
+
+    public function scopeShelf($query, $request)
+    {
+        if ($request->has('shelf') != null) {
+            $query->where('shelf_id', '=', $request->shelf);
+        }
+
+        return $query;
+    }
+
 
     public function bookToCategory()
     {

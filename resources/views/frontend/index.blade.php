@@ -6,51 +6,57 @@
         <div class="iq-card-transparent iq-card-block iq-card-stretch iq-card-height rounded">
             <div class="newrealease-contens">
                 <ul id="newrealease-slider" class="list-inline p-0 m-0 d-flex align-items-center">
+                    @foreach($books as $book)
                     <li class="item">
                         <a href="javascript:void(0);">
-                            <img src="{{ url('frontend') }}/images/new_realeases/01.jpg" class="img-fluid w-100 rounded" alt="">
+                            @if($book->image)
+                                <img src="{{ url('uploads') }}/books/{{ $book->image }}" class="img-fluid w-100 rounded" alt="">
+                            @else
+                                <img src="{{ url('uploads') }}/books/book-logo.png" class="img-fluid w-100 rounded" alt="">
+                            @endif
                         </a>
                     </li>
-                    <li class="item">
-                        <a href="javascript:void(0);">
-                            <img src="{{ url('frontend') }}/images/new_realeases/02.jpg" class="img-fluid w-100 rounded" alt="">
-                        </a>
-                    </li>
-                    <li class="item">
-                        <a href="javascript:void(0);">
-                            <img src="{{ url('frontend') }}/images/new_realeases/03.jpg" class="img-fluid w-100 rounded" alt="">
-                        </a>
-                    </li>
-                    <li class="item">
-                        <a href="javascript:void(0);">
-                            <img src="{{ url('frontend') }}/images/new_realeases/04.jpg" class="img-fluid w-100 rounded" alt="">
-                        </a>
-                    </li>
-                    <li class="item">
-                        <a href="javascript:void(0);">
-                            <img src="{{ url('frontend') }}/images/new_realeases/05.jpg" class="img-fluid w-100 rounded" alt="">
-                        </a>
-                    </li>
-                    <li class="item">
-                        <a href="javascript:void(0);">
-                            <img src="{{ url('frontend') }}/images/new_realeases/06.jpg" class="img-fluid w-100 rounded" alt="">
-                        </a>
-                    </li>
-                    <li class="item">
-                        <a href="javascript:void(0);">
-                            <img src="{{ url('frontend') }}/images/new_realeases/07.jpg" class="img-fluid w-100 rounded" alt="">
-                        </a>
-                    </li>
-                    <li class="item">
-                        <a href="javascript:void(0);">
-                            <img src="{{ url('frontend') }}/images/new_realeases/08.jpg" class="img-fluid w-100 rounded" alt="">
-                        </a>
-                    </li>
-                    <li class="item">
-                        <a href="javascript:void(0);">
-                            <img src="{{ url('frontend') }}/images/new_realeases/09.jpg" class="img-fluid w-100 rounded" alt="">
-                        </a>
-                    </li>
+                    @endforeach
+{{--                    <li class="item">--}}
+{{--                        <a href="javascript:void(0);">--}}
+{{--                            <img src="{{ url('frontend') }}/images/new_realeases/02.jpg" class="img-fluid w-100 rounded" alt="">--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                    <li class="item">--}}
+{{--                        <a href="javascript:void(0);">--}}
+{{--                            <img src="{{ url('frontend') }}/images/new_realeases/03.jpg" class="img-fluid w-100 rounded" alt="">--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                    <li class="item">--}}
+{{--                        <a href="javascript:void(0);">--}}
+{{--                            <img src="{{ url('frontend') }}/images/new_realeases/04.jpg" class="img-fluid w-100 rounded" alt="">--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                    <li class="item">--}}
+{{--                        <a href="javascript:void(0);">--}}
+{{--                            <img src="{{ url('frontend') }}/images/new_realeases/05.jpg" class="img-fluid w-100 rounded" alt="">--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                    <li class="item">--}}
+{{--                        <a href="javascript:void(0);">--}}
+{{--                            <img src="{{ url('frontend') }}/images/new_realeases/06.jpg" class="img-fluid w-100 rounded" alt="">--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                    <li class="item">--}}
+{{--                        <a href="javascript:void(0);">--}}
+{{--                            <img src="{{ url('frontend') }}/images/new_realeases/07.jpg" class="img-fluid w-100 rounded" alt="">--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                    <li class="item">--}}
+{{--                        <a href="javascript:void(0);">--}}
+{{--                            <img src="{{ url('frontend') }}/images/new_realeases/08.jpg" class="img-fluid w-100 rounded" alt="">--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                    <li class="item">--}}
+{{--                        <a href="javascript:void(0);">--}}
+{{--                            <img src="{{ url('frontend') }}/images/new_realeases/09.jpg" class="img-fluid w-100 rounded" alt="">--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
                 </ul>
             </div>
         </div>
@@ -61,26 +67,37 @@
                 <div class="iq-header-title">
                     <h4 class="card-title mb-0">Browse Books</h4>
                 </div>
+                <div class="iq-search-bar">
+                    <form action="#" class="searchbox">
+                        <input type="text" name="key" class="text search-input" placeholder="Search Here...">
+                        <a class="search-link" href="#"><i class="ri-search-line"></i></a>
+                    </form>
+                </div>
                 <div class="iq-card-header-toolbar d-flex align-items-center">
                     <a href="category.html" class="btn btn-sm btn-primary view-more">View More</a>
                 </div>
             </div>
             <div class="iq-card-body">
                 <div class="row">
+                    @foreach($books as $book)
                     <div class="col-sm-6 col-md-4 col-lg-3">
                         <div class="iq-card iq-card-block iq-card-stretch iq-card-height browse-bookcontent">
                             <div class="iq-card-body p-0">
                                 <div class="d-flex align-items-center">
                                     <div class="col-6 p-0 position-relative image-overlap-shadow">
-                                        <a href="javascript:void();"><img class="img-fluid rounded w-100" src="{{ url('frontend') }}/images/browse-books/01.jpg" alt=""></a>
+                                        @if($book->image)
+                                        <a href="javascript:void();"><img class="img-fluid rounded w-100" src="{{ url('uploads') }}/books/{{ $book->image }}" alt=""></a>
+                                        @else
+                                        <a href="javascript:void();"><img class="img-fluid rounded w-100" src="{{ url('uploads') }}/books/book-logo.png" alt=""></a>
+                                        @endif
                                         <div class="view-book">
-                                            <a href="book-page.html" class="btn btn-sm btn-white">View Book</a>
+                                            <a href="book-page.html" class="btn btn-sm btn-white">Xem Sách</a>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="mb-2">
-                                            <h6 class="mb-1">Reading on the World</h6>
-                                            <p class="font-size-13 line-height mb-1">Jhone Steben</p>
+                                            <h6 class="mb-1">{{ $book->name }}</h6>
+                                            <p class="font-size-13 line-height mb-1">{{ $book->bookToCategory->name }}</p>
                                             <div class="d-block line-height">
                                                    <span class="font-size-11 text-warning">
                                                       <i class="fa fa-star"></i>
@@ -92,8 +109,8 @@
                                             </div>
                                         </div>
                                         <div class="price d-flex align-items-center">
-                                            <span class="pr-1 old-price">$100</span>
-                                            <h6><b>$89</b></h6>
+{{--                                            <span class="pr-1 old-price">$100</span>--}}
+                                            <h6><b>{{ $book->price }} vnd</b></h6>
                                         </div>
                                         <div class="iq-product-action">
                                             <a href="javascript:void();"><i class="ri-shopping-cart-2-fill text-primary"></i></a>
@@ -104,10 +121,16 @@
                             </div>
                         </div>
                     </div>
+                    @endforeach
 
                 </div>
+                <div class="">
+                    {{$books->appends(request()->all())->links()}}
+                </div>
             </div>
+
         </div>
+
     </div>
 {{--    <div class="col-lg-6">--}}
 {{--        <div class="iq-card iq-card-block iq-card-stretch iq-card-height">--}}

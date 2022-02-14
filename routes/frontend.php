@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\frontend\IndexController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,14 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('index', function () {
-    return view('frontend.index');
-});
+Route::get('/', [IndexController::class, 'index'])->name('index');
 
 Route::get('checkout', function () {
     return view('frontend.checkout');
 });
 
-Route::get('shop', function () {
-    return view('frontend.category-shelf-book');
-});
+Route::get('shop', [IndexController::class, 'shop'])->name('shop');
+Route::post('shop', [IndexController::class, 'postShop'])->name('postShop');
+

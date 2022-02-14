@@ -93,6 +93,16 @@
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
+                            <label for="validationCustom03">Giá tiền</label>
+                            <input name="price" type="number" class="form-control" id="validationCustom03" value="{{ $book->price }}" required>
+                            <div class="valid-feedback">
+                                Good!
+                            </div>
+                            <div class="invalid-feedback">
+                                Vui lòng nhập giá tiền.
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
                             <label>Ghi chú</label>
                             <input name="note" type="text" value="{{ $book->note }}" class="form-control">
                         </div>
