@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\CustomerController;
 use Inertia\Inertia;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +17,7 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return inertia::render('create');
+    return view('welcome');
 });
+
+Route::get('customers/create', [CustomerController::class, 'create']);
