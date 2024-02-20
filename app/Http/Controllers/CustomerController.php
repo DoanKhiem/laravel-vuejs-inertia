@@ -34,7 +34,7 @@ class CustomerController extends Controller
             'phone' => 'required|max:14|min:10',
         ]);
         $customer->update($validated);
-        return Redirect::route('customer.index');
+        return Redirect::route('customer.index')->with('message', 'Customer updated.');
     }
     public function store(Request $request) {
         // Validate the request...
@@ -45,13 +45,13 @@ class CustomerController extends Controller
         ]);
         Customer::create($validated);
 
-        return Redirect::route('customer.index');
+        return Redirect::route('customer.index')->with('message', 'Customer created.');
     }
 
     public function destroy(Customer $customer) {
 //        $customer = Customer::findOrFail($id);
         $customer->delete();
-        return Redirect::route('customer.index');
+        return Redirect::route('customer.index')->with('message', 'Customer deleted.');
 //        return Redirect::route('customer.index');
     }
 }
