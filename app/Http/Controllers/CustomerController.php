@@ -9,7 +9,14 @@ use Illuminate\Support\Facades\Redirect;
 class CustomerController extends Controller
 {
     public function index() {
-
+        return Inertia::render('index', [
+            'customers' => Customer::all()->map(function ($customer) {
+                return [
+                    'id' => $customer->id,
+                    'name' => $customer->name,
+                ];
+            })
+        ]);
     }
     public function create() {
         return inertia::render('create');
