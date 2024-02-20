@@ -2,26 +2,28 @@
 import { useForm } from "@inertiajs/vue3";
 import {router} from "@inertiajs/vue3";
 
-defineProps({
-    errors: Object
+const props = defineProps({
+    errors: Object,
+    customer: Object
 })
 const form = useForm({
-    name: null,
-    email: null,
-    phone: null,
+    name: props.customer.name,
+    email: props.customer.email,
+    phone: props.customer.phone,
 })
-function submit () {
-    router.post('/customers', form)
+function submit(id) {
+    console.log(1111)
+    router.put('/customers/'+id, form)
 }
 </script>
 
 <template>
     <div class="card col-6 offset-3">
         <div class="card-header">
-            Create Customer
+            Edit Customer
         </div>
         <div class="card-body">
-            <form @submit.prevent="submit">
+            <form @submit.prevent="submit(customer.id)">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Name</label>
                     <input type="text" id="name" v-model="form.name" class="form-control">

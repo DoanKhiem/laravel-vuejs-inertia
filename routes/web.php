@@ -24,3 +24,5 @@ Route::get('customers/create', [CustomerController::class, 'create']);
 Route::get('customers', [CustomerController::class, 'index'])->name('customer.index');
 Route::post('customers', [CustomerController::class, 'store']);
 Route::delete('customers/{customer}', [CustomerController::class, 'destroy'])->name('customer.destroy');
+Route::get('customers/{customer}/edit', [CustomerController::class, 'edit'])->name('customer.edit');
+Route::put('customers/{customer}', [CustomerController::class, 'update'])->name('customer.update');

@@ -5,6 +5,9 @@ import {router} from "@inertiajs/vue3";
 function destroy(id) {
     router.delete(`/customers/${id}`)
 }
+function edit(id) {
+    router.get(`/customers/${id}/edit`)
+}
 </script>
 
 <template>
@@ -21,7 +24,7 @@ function destroy(id) {
                     <td>{{customer.name}}</td>
                     <td>
                         <button class="btn btn-outline-info">View</button>
-                        <button class="btn btn-outline-primary">Edit</button>
+                        <button @click.prevent="edit(customer.id)" class="btn btn-outline-primary">Edit</button>
                         <button @click.prevent="destroy(customer.id)" class="btn btn-outline-danger">Delete</button>
                     </td>
                 </tr>

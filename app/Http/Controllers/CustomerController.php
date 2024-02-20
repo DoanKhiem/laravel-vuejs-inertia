@@ -19,7 +19,22 @@ class CustomerController extends Controller
         ]);
     }
     public function create() {
-        return inertia::render('create');
+        return Inertia::render('create');
+    }
+    public function edit(Customer $customer) {
+        return Inertia::render('edit', [
+            'customer' => $customer
+        ]);
+    }
+
+    public function update(Request $request, Customer $customer) {
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|email',
+            'phone' => 'required|max:14|min:10',
+        ]);
+        $customer->update($validated);
+        return Redirect::route('customer.index');
     }
     public function store(Request $request) {
         // Validate the request...
