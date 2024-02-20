@@ -32,4 +32,11 @@ class CustomerController extends Controller
 
         return Redirect::route('customer.index');
     }
+
+    public function destroy(Customer $customer) {
+//        $customer = Customer::findOrFail($id);
+        $customer->delete();
+        return Redirect::route('customer.index');
+//        return Redirect::route('customer.index');
+    }
 }

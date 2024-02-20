@@ -1,5 +1,10 @@
 <script setup>
 defineProps({customers: Array})
+import {router} from "@inertiajs/vue3";
+
+function destroy(id) {
+    router.delete(`/customers/${id}`)
+}
 </script>
 
 <template>
@@ -15,9 +20,9 @@ defineProps({customers: Array})
                 <tr v-for="customer in customers">
                     <td>{{customer.name}}</td>
                     <td>
-                        <button class="btn btn-outline-info">Info</button>
+                        <button class="btn btn-outline-info">View</button>
                         <button class="btn btn-outline-primary">Edit</button>
-                        <button class="btn btn-outline-danger">Delete</button>
+                        <button @click.prevent="destroy(customer.id)" class="btn btn-outline-danger">Delete</button>
                     </td>
                 </tr>
             </tbody>
